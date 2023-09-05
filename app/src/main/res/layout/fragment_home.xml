@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".admin.HomeFragment"
+    android:layout_margin="30dp">
+
+    <TextView
+        android:id="@+id/tvHallo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hallo, "
+        android:fontFamily="@font/nunito_bold"
+        android:textColor="@color/bright_grey"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/tvTanggal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="01 January 2023"
+        android:fontFamily="@font/nunito_medium"
+        android:textSize="18sp"
+        android:textColor="@color/silver2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHallo"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clPengaduan"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTanggal"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/mainadmin_pengaduan_bg">
+
+        <ImageView
+            android:id="@+id/ivPengaduan"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_headset"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="17dp"/>
+
+        <TextView
+            android:id="@+id/tvPengaduan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pengaduan"
+            android:fontFamily="@font/nunito_semibold"
+            android:textColor="@color/bright_grey"
+            android:textSize="16.5sp"
+            app:layout_constraintTop_toTopOf="@id/ivPengaduan"
+            app:layout_constraintBottom_toBottomOf="@id/ivPengaduan"
+            app:layout_constraintStart_toEndOf="@id/ivPengaduan"
+            android:layout_marginStart="7.3dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPengaduan"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPengaduan"
+            app:layout_constraintBottom_toTopOf="@id/tvSeluruhPengaduan"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            tools:listitem="@layout/recycleritem_pengaduan_admin"/>
+
+        <TextView
+            android:id="@+id/tvSeluruhPengaduan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lihat seluruh pengaduan"
+            android:fontFamily="@font/nunito_bold"
+            android:textSize="11sp"
+            android:textColor="@color/gravel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="17dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clPengaduan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="21dp"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvMenu1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:cardCornerRadius="21dp"
+                app:cardElevation="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/mainadmin_menu_lavender_bg">
+
+                    <ImageView
+                        android:id="@+id/ivElipse1"
+                        android:layout_width="97dp"
+                        android:layout_height="75dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:src="@drawable/ellipse_quotes"/>
+
+                    <ImageView
+                        android:id="@+id/ivMenu1"
+                        android:layout_width="73dp"
+                        android:layout_height="73dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="14dp"
+                        android:src="@drawable/ic_quotes"/>
+
+                    <TextView
+                        android:id="@+id/tvMenu1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Forum Raya"
+                        android:fontFamily="@font/nunito_bold"
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toEndOf="@id/ivMenu1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginStart="13dp"
+                        android:layout_marginTop="28.5dp"/>
+
+                    <TextView
+                        android:id="@+id/tvKetMenu1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Atur topik pada forum disini!"
+                        android:fontFamily="@font/nunito_regular"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintTop_toBottomOf="@id/tvMenu1"
+                        app:layout_constraintStart_toEndOf="@id/ivMenu1"
+                        android:layout_marginStart="13dp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvMenu2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvMenu1"
+                android:layout_marginTop="27dp"
+                app:cardCornerRadius="21dp"
+                app:cardElevation="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/mainadmin_menu_apricot_bg">
+
+                    <ImageView
+                        android:id="@+id/ivElipse2"
+                        android:layout_width="97dp"
+                        android:layout_height="75dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:src="@drawable/ellipse_firstaid"/>
+
+                    <ImageView
+                        android:id="@+id/ivMenu2"
+                        android:layout_width="73dp"
+                        android:layout_height="73dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="14dp"
+                        android:src="@drawable/ic_firstaid"/>
+
+                    <TextView
+                        android:id="@+id/tvMenu2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Layanan Raya"
+                        android:fontFamily="@font/nunito_bold"
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toEndOf="@id/ivMenu2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginStart="13dp"
+                        android:layout_marginTop="28.5dp"/>
+
+                    <TextView
+                        android:id="@+id/tvKetMenu2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tambahkan layanan raya"
+                        android:fontFamily="@font/nunito_regular"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintTop_toBottomOf="@id/tvMenu2"
+                        app:layout_constraintStart_toEndOf="@id/ivMenu2"
+                        android:layout_marginStart="13dp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvMenu3"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvMenu2"
+                android:layout_marginTop="27dp"
+                app:cardCornerRadius="21dp"
+                app:cardElevation="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/mainadmin_menu_geraldine_bg">
+
+                    <ImageView
+                        android:id="@+id/ivElipse3"
+                        android:layout_width="97dp"
+                        android:layout_height="75dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:src="@drawable/ellipse_scroll"/>
+
+                    <ImageView
+                        android:id="@+id/ivMenu3"
+                        android:layout_width="73dp"
+                        android:layout_height="73dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="14dp"
+                        android:src="@drawable/ic_scroll"/>
+
+                    <TextView
+                        android:id="@+id/tvMenu3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Edukasi"
+                        android:fontFamily="@font/nunito_bold"
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toEndOf="@id/ivMenu3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginStart="13dp"
+                        android:layout_marginTop="28.5dp"/>
+
+                    <TextView
+                        android:id="@+id/tvKetMenu3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Perbarui terus topik edukasi disini!"
+                        android:fontFamily="@font/nunito_regular"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintTop_toBottomOf="@id/tvMenu3"
+                        app:layout_constraintStart_toEndOf="@id/ivMenu3"
+                        android:layout_marginStart="13dp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

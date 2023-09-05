@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="175dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/dialog_logout_bg">
+
+    <TextView
+        android:id="@+id/tvDialogLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kamu yakin untuk keluar?"
+        android:fontFamily="@font/nunito_light"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="35dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogoutDialog"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:text="Keluar"
+        android:textSize="21sp"
+        android:elevation="10dp"
+        android:outlineSpotShadowColor="@color/valentine_red"
+        android:fontFamily="@font/nunito_bold"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:background="@drawable/btn_logout_dialog_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDialogLogout"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:stateListAnimator="@null"/>
+
+    <TextView
+        android:id="@+id/btnKembaliDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kembali"
+        android:fontFamily="@font/nunito_semibold"
+        android:textSize="16sp"
+        android:textColor="@color/bright_grey"
+        app:layout_constraintTop_toBottomOf="@id/btnLogoutDialog"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

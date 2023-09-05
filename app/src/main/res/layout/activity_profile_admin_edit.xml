@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.ProfileAdminEditActivity"
+    android:layout_margin="30dp">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_arrow_left" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clEditPP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        android:layout_marginTop="17dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPP"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:cardCornerRadius="100dp"
+            android:background="@android:color/transparent">
+
+            <ImageView
+                android:id="@+id/ivPP"
+                android:layout_width="77dp"
+                android:layout_height="77dp"
+                android:src="@drawable/pp_admin"
+                android:scaleType="centerCrop"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/ivPencil"
+            android:layout_width="23.33dp"
+            android:layout_height="23.33dp"
+            app:layout_constraintBottom_toBottomOf="@id/cvPP"
+            app:layout_constraintStart_toEndOf="@id/cvPP"
+            android:src="@drawable/profile_pencil"
+            android:background="@drawable/profile_iv_pencil_bg"
+            android:layout_marginStart="-17dp"
+            android:padding="5.25dp"
+            android:elevation="0dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvLabelNama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Lengkap"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="14sp"
+        android:textColor="@color/cool_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clEditPP"
+        android:layout_marginTop="33dp"/>
+
+    <EditText
+        android:id="@+id/etNama"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="John Doe"
+        android:fontFamily="@font/nunito_regular"
+        android:textColor="@color/bright_grey"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLabelNama"
+        android:layout_marginTop="17dp"/>
+
+    <TextView
+        android:id="@+id/tvLabelUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Pengguna"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="14sp"
+        android:textColor="@color/cool_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNama"
+        android:layout_marginTop="17dp"/>
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="johndoeeee"
+        android:fontFamily="@font/nunito_regular"
+        android:textColor="@color/bright_grey"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLabelUsername"
+        android:layout_marginTop="17dp"/>
+
+    <TextView
+        android:id="@+id/tvLabelEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="14sp"
+        android:textColor="@color/cool_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etUsername"
+        android:layout_marginTop="17dp"/>
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="johndoeeee@gmail.com"
+        android:fontFamily="@font/nunito_regular"
+        android:textColor="@color/bright_grey"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLabelEmail"
+        android:layout_marginTop="17dp"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSimpan"
+        android:layout_width="285dp"
+        android:layout_height="40dp"
+        android:background="@drawable/btn_simpan_bg"
+        android:text="Simpan"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:fontFamily="@font/nunito_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etEmail"
+        android:layout_marginTop="90dp"
+        android:elevation="10dp"
+        android:outlineSpotShadowColor="@color/success"
+        android:stateListAnimator="@null"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

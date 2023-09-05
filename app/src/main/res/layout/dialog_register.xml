@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="31dp"
+    android:background="@drawable/dialog_register_bg">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="236dp"
+        android:layout_height="350dp">
+
+        <ImageView
+            android:id="@+id/ivSucces"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/ic_success"/>
+
+        <TextView
+            android:id="@+id/tvKetSucces"
+            android:layout_width="194dp"
+            android:layout_height="wrap_content"
+            android:text="Link verifikasi telah berhasil dikirim melalui alamat email "
+            android:fontFamily="@font/nunito_regular"
+            android:textSize="12sp"
+            android:textColor="@color/bright_grey"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSucces"
+            android:layout_marginTop="35dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnMasuk"
+            android:layout_width="197dp"
+            android:layout_height="31.44dp"
+            android:background="@drawable/login_btn_masuk_bg"
+            android:text="Masuk"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="13.82sp"
+            android:fontFamily="@font/nunito_bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvKetSucces"
+            android:layout_marginTop="35dp"
+            android:elevation="10dp"
+            android:outlineSpotShadowColor="@color/tufts_blue"
+            android:stateListAnimator="@null"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

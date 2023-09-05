@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Hiline</string>
+    <string name="Buat_akun"><u>Buat Akun</u></string>
+    <string name="Masuk"><u>Masuk</u></string>
+
+    <string name="AlamatLayanan"><b>Alamat:</b> Jl. Raya Pajajaran No.27, RT.01/RW.04, Babakan, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 14140</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

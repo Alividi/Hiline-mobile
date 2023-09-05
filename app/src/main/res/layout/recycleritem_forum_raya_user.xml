@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="22dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clForumRaya"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/forumraya_bg"
+        android:paddingBottom="18dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPPForum"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="19dp"
+            app:cardCornerRadius="100dp"
+            android:background="@android:color/transparent">
+
+            <ImageView
+                android:id="@+id/ivPPForum"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/forumraya_pp"
+                android:scaleType="centerCrop"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvNamaForum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pelita"
+            android:fontFamily="@font/nunito_bold"
+            android:textSize="14sp"
+            android:textColor="@color/gravel"
+            app:layout_constraintStart_toEndOf="@id/cvPPForum"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="15dp" />
+
+        <TextView
+            android:id="@+id/tvUsernameForum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\@\pelitaharapan"
+            android:fontFamily="@font/nunito_medium"
+            android:textSize="14sp"
+            android:textColor="@color/cool_grey"
+            app:layout_constraintStart_toEndOf="@id/cvPPForum"
+            app:layout_constraintTop_toBottomOf="@id/tvNamaForum"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="-2dp"/>
+
+        <TextView
+            android:id="@+id/tvJudulForum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet consectetur. Laoreet non ut at in est aliquam."
+            android:fontFamily="@font/nunito_bold"
+            android:textSize="14sp"
+            android:textColor="@color/gravel"
+            app:layout_constraintTop_toBottomOf="@id/tvUsernameForum"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tvIsiForum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet consectetur. Laoreet non ut at in est aliquam."
+            android:fontFamily="@font/nunito_regular"
+            android:textColor="@color/silver3"
+            app:layout_constraintTop_toBottomOf="@id/tvJudulForum"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <CheckBox
+            android:id="@+id/checkboxFav"
+            android:layout_width="19.2dp"
+            android:layout_height="19.2dp"
+            style="@style/YellowCheckboxStyle"
+            android:button="@drawable/checkbox_star_filled"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvIsiForum"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tvFavCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:fontFamily="@font/nunito_semibold"
+            android:textColor="@color/bright_grey"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/checkboxFav"
+            app:layout_constraintTop_toTopOf="@id/checkboxFav"
+            app:layout_constraintBottom_toBottomOf="@id/checkboxFav"
+            android:layout_marginStart="3dp"/>
+
+        <ImageView
+            android:id="@+id/ivKomentar"
+            android:layout_width="19.2dp"
+            android:layout_height="19.2dp"
+            app:layout_constraintStart_toEndOf="@id/tvFavCount"
+            app:layout_constraintTop_toTopOf="@id/tvFavCount"
+            app:layout_constraintBottom_toBottomOf="@id/tvFavCount"
+            android:src="@drawable/ic_comment"
+            android:layout_marginStart="6.5dp"/>
+
+        <TextView
+            android:id="@+id/tvKomentarCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:fontFamily="@font/nunito_semibold"
+            android:textColor="@color/bright_grey"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/ivKomentar"
+            app:layout_constraintTop_toTopOf="@id/ivKomentar"
+            app:layout_constraintBottom_toBottomOf="@id/ivKomentar"
+            android:layout_marginStart="3dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

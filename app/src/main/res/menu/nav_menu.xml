@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/navHome"
+        android:icon="@drawable/admin_nav_home"
+        android:title="Home" />
+
+    <item android:id="@+id/navChat"
+        android:icon="@drawable/admin_nav_chat"
+        android:title="Konsultasi" />
+
+    <item android:id="@+id/navProfile"
+        android:icon="@drawable/admin_nav_profile"
+        android:title="Profile" />
+
+</menu>

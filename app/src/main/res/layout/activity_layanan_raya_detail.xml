@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user.LayananRayaDetailActivity">
+
+    <org.osmdroid.views.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="227dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="28dp"
+        android:layout_marginStart="18dp"
+        android:src="@drawable/ic_arrow_left"
+        android:background="@drawable/btn_back_bg"
+        android:padding="7dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clDetail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/map"
+        android:layout_marginTop="19dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp">
+
+        <TextView
+            android:id="@+id/tvNamaLayanan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RS Siloam"
+            android:fontFamily="@font/nunito_extrabold"
+            android:textSize="24dp"
+            android:textColor="@color/gravel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvAlamatLayanan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/AlamatLayanan"
+            android:fontFamily="@font/nunito_extralight"
+            android:textColor="@color/gravel"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tvNamaLayanan"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="14dp"/>
+        
+        <TextView
+            android:id="@+id/tvTelepon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telepon: "
+            android:fontFamily="@font/nunito_semibold"
+            android:textSize="14sp"
+            android:textColor="@color/gravel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAlamatLayanan"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/tvNoTelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(0251) 8303900"
+            android:fontFamily="@font/nunito_extralight"
+            android:textColor="@color/gravel"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/tvTelepon"
+            app:layout_constraintTop_toTopOf="@id/tvTelepon"
+            app:layout_constraintBottom_toBottomOf="@id/tvTelepon"/>
+
+        <ImageView
+            android:id="@+id/ivJarak"
+            android:layout_width="16.88dp"
+            android:layout_height="16.88dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTelepon"
+            android:src="@drawable/ic_jarak"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/tvJarak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.1 Km"
+            android:fontFamily="@font/nunito_regular"
+            android:textColor="@color/yellow_orange"
+            android:textSize="12.27sp"
+            app:layout_constraintStart_toEndOf="@id/ivJarak"
+            app:layout_constraintTop_toBottomOf="@id/tvTelepon"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnBukaMap"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:text="Buka Map"
+        android:textAllCaps="false"
+        android:fontFamily="@font/nunito_semibold"
+        android:textSize="14sp"
+        android:textColor="@color/bright_grey"
+        android:background="@drawable/btn_buka_map_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/map"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="12dp"
+        android:paddingStart="22dp"
+        android:paddingEnd="22dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

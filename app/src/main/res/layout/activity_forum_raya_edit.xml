@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.ForumRayaEditActivity"
+    android:layout_margin="30dp">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_arrow_left" />
+
+    <TextView
+        android:id="@+id/tvJudulForum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Judul"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="12sp"
+        android:textColor="@color/gravel"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="21dp"/>
+
+    <EditText
+        android:id="@+id/etJudul"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:inputType="text"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="14sp"
+        android:textColor="@color/gravel"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvJudulForum"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/et_layananraya_bg"/>
+
+    <TextView
+        android:id="@+id/tvIsiForum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Isi"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="12sp"
+        android:textColor="@color/gravel"
+        app:layout_constraintTop_toBottomOf="@id/etJudul"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="21dp"/>
+
+    <EditText
+        android:id="@+id/etIsi"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="14sp"
+        android:textColor="@color/gravel"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvIsiForum"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/et_layananraya_bg"
+        android:gravity="top"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:inputType="textMultiLine"
+        android:maxLines="7"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSimpan"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/btn_simpan_bg"
+        android:text="Simpan"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:fontFamily="@font/nunito_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:elevation="10dp"
+        android:layout_marginBottom="23dp"
+        android:outlineSpotShadowColor="@color/success"
+        android:stateListAnimator="@null"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

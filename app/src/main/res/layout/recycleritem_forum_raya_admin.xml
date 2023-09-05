@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="30dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clForumRaya"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvJudulForum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pengalaman menjadi ODHA di tempat kerja"
+            android:fontFamily="@font/nunito_bold"
+            android:textColor="@color/gravel"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvIsiForum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bagikan pengalaman mu sebagai ODHA saat berada di tempat kerja"
+            android:fontFamily="@font/nunito_regular"
+            android:textSize="12sp"
+            android:textColor="@color/silver2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvJudulForum"
+            android:layout_marginTop="11dp"/>
+
+        <CheckBox
+            android:id="@+id/checkboxFav"
+            android:layout_width="19.2dp"
+            android:layout_height="19.2dp"
+            style="@style/YellowCheckboxStyle"
+            android:button="@drawable/checkbox_star_filled"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvIsiForum"
+            android:layout_marginTop="11dp"/>
+
+        <TextView
+            android:id="@+id/tvFav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="125"
+            android:fontFamily="@font/nunito_semibold"
+            android:textColor="@color/bright_grey"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/checkboxFav"
+            app:layout_constraintTop_toTopOf="@id/checkboxFav"
+            app:layout_constraintBottom_toBottomOf="@id/checkboxFav"
+            android:layout_marginStart="3dp"/>
+
+        <ImageView
+            android:id="@+id/ivKomentar"
+            android:layout_width="19.2dp"
+            android:layout_height="19.2dp"
+            app:layout_constraintStart_toEndOf="@id/tvFav"
+            app:layout_constraintTop_toTopOf="@id/tvFav"
+            app:layout_constraintBottom_toBottomOf="@id/tvFav"
+            android:src="@drawable/ic_comment"
+            android:layout_marginStart="11dp"/>
+
+        <TextView
+            android:id="@+id/tvKomentar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="40"
+            android:fontFamily="@font/nunito_semibold"
+            android:textColor="@color/bright_grey"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/ivKomentar"
+            app:layout_constraintTop_toTopOf="@id/ivKomentar"
+            app:layout_constraintBottom_toBottomOf="@id/ivKomentar"
+            android:layout_marginStart="3dp"/>
+
+        <TextView
+            android:id="@+id/btnHapus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hapus"
+            android:fontFamily="@font/nunito_regular"
+            android:textSize="12sp"
+            android:textColor="@color/valentine_red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/checkboxFav"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/tvLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="|"
+            android:fontFamily="@font/nunito_regular"
+            android:textSize="12sp"
+            android:textColor="@color/light_grey"
+            app:layout_constraintEnd_toStartOf="@id/btnHapus"
+            app:layout_constraintTop_toTopOf="@id/btnHapus"
+            app:layout_constraintBottom_toBottomOf="@id/btnHapus"
+            android:layout_marginEnd="4dp"/>
+
+        <TextView
+            android:id="@+id/btnEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:fontFamily="@font/nunito_regular"
+            android:textSize="12sp"
+            android:textColor="@color/tufts_blue"
+            app:layout_constraintEnd_toStartOf="@id/tvLine"
+            app:layout_constraintTop_toTopOf="@id/tvLine"
+            app:layout_constraintBottom_toBottomOf="@id/tvLine"
+            android:layout_marginEnd="4dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
