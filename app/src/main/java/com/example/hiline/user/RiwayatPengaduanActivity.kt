@@ -5,17 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hiline.PrefManager
 import com.example.hiline.R
 import com.example.hiline.Retro
-import com.example.hiline.adapter.ForumRayaUserAdapter
 import com.example.hiline.adapter.ReportUserAdapter
 import com.example.hiline.api.ForumApi
 import com.example.hiline.interfaces.ReportInterface
-import com.example.hiline.model.ForumModel
 import com.example.hiline.model.ReportModel
 import com.example.hiline.model.ReportsResponse
 import retrofit2.Call
@@ -49,7 +46,7 @@ class RiwayatPengaduanActivity : AppCompatActivity(), ReportInterface {
     }
 
     fun getReports(){
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val reportApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = reportApi.getReports(token)

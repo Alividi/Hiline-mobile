@@ -6,13 +6,11 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract.CommonDataKinds.Im
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.content.ContextCompat
 import com.example.hiline.PrefManager
 import com.example.hiline.R
 import com.example.hiline.Retro
@@ -162,7 +160,7 @@ class LaporkanKomentarActivity : AppCompatActivity() {
         val request = ReportRequest()
         request.comment_id = idComment
         request.message = messageComment
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val reportApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = reportApi.postReport(token,request)

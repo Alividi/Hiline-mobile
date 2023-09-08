@@ -14,7 +14,6 @@ import com.example.hiline.R
 import com.example.hiline.Retro
 import com.example.hiline.api.ForumApi
 import com.example.hiline.interfaces.ForumRayaInterface
-import com.example.hiline.model.CommentResponse
 import com.example.hiline.model.ForumModel
 import com.example.hiline.model.ForumsResponse
 import com.squareup.picasso.Picasso
@@ -100,7 +99,7 @@ class ForumRayaUserAdapter(
 
     fun favForum(position: Int){
         val id = forumModels[position].id.toString()
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
         val call = forumApi.favForum(id,token)
 

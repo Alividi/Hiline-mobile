@@ -7,9 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.SearchView
-import android.widget.TextView
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,15 +15,10 @@ import com.example.hiline.PrefManager
 import com.example.hiline.R
 import com.example.hiline.Retro
 import com.example.hiline.adapter.ForumRayaAdminAdapter
-import com.example.hiline.adapter.ForumRayaUserAdapter
 import com.example.hiline.api.ForumApi
 import com.example.hiline.interfaces.ForumRayaInterface
 import com.example.hiline.model.ForumModel
 import com.example.hiline.model.ForumsResponse
-import com.example.hiline.model.HospitalModel
-import com.example.hiline.user.ForumRayaKomentarActivity
-import com.example.hiline.user.MainUserActivity
-import com.example.hiline.user.RiwayatPengaduanActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import retrofit2.Call
 import retrofit2.Callback
@@ -79,7 +72,7 @@ class ForumRayaAdminActivity : AppCompatActivity(), ForumRayaInterface {
     }
 
     fun getForums() {
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = forumApi.getForums(token)

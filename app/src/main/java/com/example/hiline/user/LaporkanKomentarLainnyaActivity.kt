@@ -79,7 +79,7 @@ class LaporkanKomentarLainnyaActivity : AppCompatActivity() {
         val request = ReportRequest()
         request.comment_id = id
         request.message = etAlasan.text.toString().trim()
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val reportApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = reportApi.postReport(token,request)

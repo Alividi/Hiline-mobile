@@ -73,7 +73,7 @@ class PengaduanInfoActivity : AppCompatActivity() {
     }
 
     fun getReport(){
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val reportApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = reportApi.getReport(id,token)
@@ -136,7 +136,7 @@ class PengaduanInfoActivity : AppCompatActivity() {
     }
 
     fun deleteReport(){
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val reportApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = reportApi.deleteReport(id,token)

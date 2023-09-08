@@ -31,8 +31,13 @@ class PrefManager(var context: Context) {
         editor.commit()
     }
 
-    fun setToken(token: String){
-        editor.putString("token", token)
+    fun setAccessToken(token: String){
+        editor.putString("acces_token", token)
+        editor.commit()
+    }
+
+    fun setRefreshToken(token: String){
+        editor.putString("refresh_token", token)
         editor.commit()
     }
 
@@ -72,8 +77,12 @@ class PrefManager(var context: Context) {
         return pref.getString("username", "")
     }
 
-    fun getToken(): String?{
-        return pref.getString("token", "")
+    fun getAccessToken(): String?{
+        return pref.getString("access_token", "")
+    }
+
+    fun getRefreshToken(): String?{
+        return pref.getString("refresh_token", "")
     }
 
     fun getEmail(): String?{

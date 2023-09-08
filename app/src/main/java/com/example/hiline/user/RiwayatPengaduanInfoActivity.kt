@@ -10,7 +10,6 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.hiline.PrefManager
 import com.example.hiline.R
 import com.example.hiline.Retro
@@ -75,7 +74,7 @@ class RiwayatPengaduanInfoActivity : AppCompatActivity() {
 
     fun deleteReport(){
         val id = intent.getStringExtra("id").toString()
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val reportApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = reportApi.deleteReport(id,token)

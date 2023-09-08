@@ -23,14 +23,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.hiline.PrefManager
 import com.example.hiline.R
 import com.example.hiline.Retro
-import com.example.hiline.admin.PengaduanActivity
-import com.example.hiline.admin.PengaduanKomentarActivity
 import com.example.hiline.api.ForumApi
 import com.example.hiline.model.CommentModel
 import com.example.hiline.model.CommentResponse
-import com.example.hiline.user.ForumRayaKomentarActivity
 import com.example.hiline.user.LaporkanKomentarActivity
-import com.example.hiline.user.RiwayatPengaduanActivity
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
@@ -119,7 +115,7 @@ class ForumCommentUserAdapter(
 
     fun likeComment(position: Int){
         val id = commentModels[position].id.toString()
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
         val call = forumApi.likeComment(id,token)
 
@@ -213,7 +209,7 @@ class ForumCommentUserAdapter(
     fun deleteComment(position: Int){
         Log.e("ID deleteComment:", commentModels[position].id.toString() )
         val id = commentModels[position].id.toString()
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = forumApi.deleteComment(id,token)

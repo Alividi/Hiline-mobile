@@ -11,9 +11,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
-import com.example.hiline.LoginActivity
 import com.example.hiline.PrefManager
 import com.example.hiline.R
 import com.example.hiline.Retro
@@ -78,7 +76,7 @@ class GantiPasswordActivity : AppCompatActivity() {
             etPassword.requestFocus()
         }else{
             val retro = Retro().getRetroClientInstance().create(UserApi::class.java)
-            val tokenAuth = "Bearer ${prefManager.getToken()}"
+            val tokenAuth = "Bearer ${prefManager.getAccessToken()}"
 
             retro.validateResetPW(tokenAuth, request).enqueue(object : Callback<ProfileResponse>{
                 override fun onResponse(

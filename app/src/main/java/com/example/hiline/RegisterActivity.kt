@@ -57,7 +57,7 @@ class RegisterActivity : AppCompatActivity() {
         request.username = etUsername.text.toString().trim()
         request.email = etEmail.text.toString().trim()
         request.password = etPassword.text.toString().trim()
-        request.confirm_password = etKPassword.text.toString().trim()
+        request.role = "user"
 
         if (etNama.text.toString() == "") {
             etNama.error = "Nama wajib diisi"
@@ -75,29 +75,33 @@ class RegisterActivity : AppCompatActivity() {
             etKPassword.error = "Wajib diisi"
             etKPassword.requestFocus()
         } else {
-            val retro = Retro().getRetroClientInstance().create(UserApi::class.java)
-            retro.signup(request).enqueue(object : Callback<UserResponse> {
-                override fun onResponse(
-                    call: Call<UserResponse>,
-                    response: Response<UserResponse>
-                ) {
-                    val rawResponse = response.raw().toString()
-                    Log.e("Raw Response: ", rawResponse)
-                    Log.e("name: ", request.name.toString())
-                    Log.e("username: ", request.username.toString())
-                    Log.e("email: ", request.email.toString())
-                    Log.e("password: ", request.password.toString())
-                    Log.e("k password: ", request.confirm_password.toString())
-                    showDialog()
-                    Toast.makeText(this@RegisterActivity, "Register Berhasil", Toast.LENGTH_SHORT)
-                        .show()
-                }
+            if (etPassword.text.toString() == etKPassword.text.toString()){
+                val retro = Retro().getRetroUserUrl().create(UserApi::class.java)
+                retro.signup(request).enqueue(object : Callback<UserResponse> {
+                    override fun onResponse(
+                        call: Call<UserResponse>,
+                        response: Response<UserResponse>
+                    ) {
+                        val rawResponse = response.raw().toString()
+                        Log.e("Raw Response: ", rawResponse)
+                        Log.e("name: ", request.name.toString())
+                        Log.e("username: ", request.username.toString())
+                        Log.e("email: ", request.email.toString())
+                        Log.e("password: ", request.password.toString())
+                        Log.e("role: ", request.role.toString())
+                        showDialog()
+                        Toast.makeText(this@RegisterActivity, "Register Berhasil", Toast.LENGTH_SHORT)
+                            .show()
+                    }
 
-                override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                    Log.e("Error: ", t.message ?: "Error not found")
-                }
+                    override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+                        Log.e("Error: ", t.message ?: "Error not found")
+                    }
 
-            })
+                })
+            }else{
+                Toast.makeText(this,"Password tidak cocok", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

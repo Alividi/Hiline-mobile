@@ -18,14 +18,21 @@ import retrofit2.http.PUT
 import retrofit2.http.Part
 
 interface UserApi {
-    @POST("signin")
-    fun signin(
+
+    @POST("/api/auth/login")
+    fun login(
         @Body loginRequest: LoginRequest
     ): Call<UserResponse>
 
-    @POST("signup")
+    @POST("/api/user")
     fun signup(
         @Body registerRequest: RegisterRequest
+    ): Call<UserResponse>
+
+    //before
+    @POST("signin")
+    fun signin(
+        @Body loginRequest: LoginRequest
     ): Call<UserResponse>
 
     @PUT("profile")

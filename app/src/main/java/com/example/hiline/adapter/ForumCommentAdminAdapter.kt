@@ -6,17 +6,14 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.util.Log
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hiline.PrefManager
@@ -25,7 +22,6 @@ import com.example.hiline.Retro
 import com.example.hiline.api.ForumApi
 import com.example.hiline.model.CommentModel
 import com.example.hiline.model.CommentResponse
-import com.example.hiline.model.ForumResponse
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
@@ -127,7 +123,7 @@ class ForumCommentAdminAdapter(
 
     fun deleteComment(position: Int){
         val id = commentModels[position].id.toString()
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = forumApi.deleteComment(id,token)
@@ -153,7 +149,7 @@ class ForumCommentAdminAdapter(
 
     fun likeComment(position: Int){
         val id = commentModels[position].id.toString()
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
         val call = forumApi.likeComment(id,token)
 

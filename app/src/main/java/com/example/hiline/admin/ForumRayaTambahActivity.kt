@@ -4,7 +4,6 @@ import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -18,7 +17,6 @@ import com.example.hiline.PrefManager
 import com.example.hiline.R
 import com.example.hiline.Retro
 import com.example.hiline.api.ForumApi
-import com.example.hiline.model.CommentResponse
 import com.example.hiline.model.ForumRequest
 import com.example.hiline.model.ForumResponse
 import retrofit2.Call
@@ -64,7 +62,7 @@ class ForumRayaTambahActivity : AppCompatActivity() {
         request.description = etIsi.text.toString().trim()
 
         val retro = Retro().getRetroClientInstance().create(ForumApi::class.java)
-        val tokenAuth = "Bearer ${prefManager.getToken()}"
+        val tokenAuth = "Bearer ${prefManager.getAccessToken()}"
 
         if (etJudul.text.toString() == ""){
             etJudul.error = "Title wajib diisi"

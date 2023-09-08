@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -83,7 +82,7 @@ class ForumRayaActivity : AppCompatActivity(), ForumRayaInterface {
     }
 
     fun getForums() {
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = forumApi.getForums(token)
@@ -129,7 +128,7 @@ class ForumRayaActivity : AppCompatActivity(), ForumRayaInterface {
     }
 
     fun getForumsNew() {
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = forumApi.getForumsNew(token)
@@ -175,7 +174,7 @@ class ForumRayaActivity : AppCompatActivity(), ForumRayaInterface {
     }
 
     fun getForumsPopular(){
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = forumApi.getForumsPopular(token)
@@ -221,7 +220,7 @@ class ForumRayaActivity : AppCompatActivity(), ForumRayaInterface {
     }
 
     fun getForumsFavorite(){
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = forumApi.getForumsFavorite(token)

@@ -9,15 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hiline.PrefManager
 import com.example.hiline.R
 import com.example.hiline.Retro
-import com.example.hiline.adapter.ReportAdminAdapter
 import com.example.hiline.adapter.ReportHomeAdminAdapter
-import com.example.hiline.adapter.ReportUserAdapter
 import com.example.hiline.api.ForumApi
 import com.example.hiline.model.ReportModel
 import com.example.hiline.model.ReportsResponse
@@ -129,7 +126,7 @@ class HomeFragment : Fragment() {
         }
     }
     fun getReports(){
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val reportApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = reportApi.getReports(token)

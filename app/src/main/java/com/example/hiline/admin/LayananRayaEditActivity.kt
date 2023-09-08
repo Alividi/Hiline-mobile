@@ -198,7 +198,7 @@ class LayananRayaEditActivity : AppCompatActivity() {
         val telp = etTelp.text.toString()
         val lat = Latitude
         val lng = Longitude
-        val tokenAuth = "Bearer ${prefManager.getToken()}"
+        val tokenAuth = "Bearer ${prefManager.getAccessToken()}"
 
         val namePart = name.toRequestBody("text/plain".toMediaTypeOrNull())
         val cityPart = city.toRequestBody("text/plain".toMediaTypeOrNull())

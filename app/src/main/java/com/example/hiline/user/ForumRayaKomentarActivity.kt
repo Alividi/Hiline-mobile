@@ -1,37 +1,25 @@
 package com.example.hiline.user
 
-import android.app.Dialog
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
 import android.view.inputmethod.InputMethodManager
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.widget.AppCompatButton
-import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hiline.PrefManager
 import com.example.hiline.R
 import com.example.hiline.Retro
 import com.example.hiline.adapter.ForumCommentUserAdapter
-import com.example.hiline.adapter.ForumRayaUserAdapter
 import com.example.hiline.api.ForumApi
-import com.example.hiline.api.UserApi
 import com.example.hiline.model.CommentModel
 import com.example.hiline.model.CommentRequest
 import com.example.hiline.model.CommentResponse
-import com.example.hiline.model.ForumModel
 import com.example.hiline.model.ForumResponse
 import com.example.hiline.model.ForumsResponse
 import com.squareup.picasso.Picasso
@@ -106,7 +94,7 @@ class ForumRayaKomentarActivity : AppCompatActivity() {
 
     fun getComments(){
         val id = idForum
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = forumApi.getForum(id,token)
@@ -186,7 +174,7 @@ class ForumRayaKomentarActivity : AppCompatActivity() {
         request.message = etReply.text.toString()
 
         val retro = Retro().getRetroClientInstance().create(ForumApi::class.java)
-        val tokenAuth = "Bearer ${prefManager.getToken()}"
+        val tokenAuth = "Bearer ${prefManager.getAccessToken()}"
 
         retro.postComment(tokenAuth, request).enqueue(object : Callback<CommentResponse>{
             override fun onResponse(
@@ -233,7 +221,7 @@ class ForumRayaKomentarActivity : AppCompatActivity() {
     }
 
     fun favForum(id: String){
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
         val call = forumApi.favForum(id,token)
 

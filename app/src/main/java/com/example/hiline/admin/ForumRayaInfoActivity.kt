@@ -19,11 +19,9 @@ import com.example.hiline.PrefManager
 import com.example.hiline.R
 import com.example.hiline.Retro
 import com.example.hiline.adapter.ForumCommentAdminAdapter
-import com.example.hiline.adapter.ForumCommentUserAdapter
 import com.example.hiline.api.ForumApi
 import com.example.hiline.model.CommentModel
 import com.example.hiline.model.ForumResponse
-import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -67,7 +65,7 @@ class ForumRayaInfoActivity : AppCompatActivity() {
 
     fun getComments(){
         val id = idForum
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = forumApi.getForum(id,token)
@@ -174,7 +172,7 @@ class ForumRayaInfoActivity : AppCompatActivity() {
 
     fun deleteForum(){
         val id = idForum
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = forumApi.deleteForum(id,token)

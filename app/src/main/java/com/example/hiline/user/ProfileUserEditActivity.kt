@@ -25,8 +25,6 @@ import com.example.hiline.api.UserApi
 import com.example.hiline.model.EditProfileRequest
 import com.example.hiline.model.ProfileResponse
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -136,7 +134,7 @@ class ProfileUserEditActivity : AppCompatActivity() {
         request.tanggal_lahir = etTanggal.text.toString().trim()
 
         val retro = Retro().getRetroClientInstance().create(UserApi::class.java)
-        val tokenAuth = "Bearer ${prefManager.getToken()}"
+        val tokenAuth = "Bearer ${prefManager.getAccessToken()}"
 
         if (etNama.text.toString() == ""){
             etNama.error = "Nama wajib diisi"
@@ -184,7 +182,7 @@ class ProfileUserEditActivity : AppCompatActivity() {
 
     fun uploadImage(){
         val retro = Retro().getRetroClientInstance().create(UserApi::class.java)
-        val tokenAuth = "Bearer ${prefManager.getToken()}"
+        val tokenAuth = "Bearer ${prefManager.getAccessToken()}"
 
         val drawable = ivPP.drawable
         val bitmap = (drawable as BitmapDrawable).bitmap

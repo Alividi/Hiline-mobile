@@ -10,7 +10,6 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
-import com.example.hiline.LoginActivity
 import com.example.hiline.PrefManager
 import com.example.hiline.R
 import com.example.hiline.Retro
@@ -64,7 +63,7 @@ class GantiPwActivity : AppCompatActivity() {
             etKPassword.requestFocus()
         }else{
             val retro = Retro().getRetroClientInstance().create(UserApi::class.java)
-            val tokenAuth = "Bearer ${prefManager.getToken()}"
+            val tokenAuth = "Bearer ${prefManager.getAccessToken()}"
 
             retro.resetPW(tokenAuth, request).enqueue(object : Callback<ProfileResponse> {
                 override fun onResponse(

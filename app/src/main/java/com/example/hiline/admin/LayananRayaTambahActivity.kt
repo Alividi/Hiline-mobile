@@ -26,8 +26,6 @@ import com.example.hiline.R
 import com.example.hiline.Retro
 import com.example.hiline.api.HospitalApi
 import com.example.hiline.model.HospitalResponse
-import com.example.hiline.model.HospitalsResponse
-import com.squareup.picasso.Picasso
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -191,7 +189,7 @@ class LayananRayaTambahActivity : AppCompatActivity() {
         val telp = etTelp.text.toString()
         val lat = Latitude
         val lng = Longitude
-        val tokenAuth = "Bearer ${prefManager.getToken()}"
+        val tokenAuth = "Bearer ${prefManager.getAccessToken()}"
 
         val namePart = name.toRequestBody("text/plain".toMediaTypeOrNull())
         val cityPart = city.toRequestBody("text/plain".toMediaTypeOrNull())

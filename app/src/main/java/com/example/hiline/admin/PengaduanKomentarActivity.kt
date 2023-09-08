@@ -18,7 +18,6 @@ import com.example.hiline.R
 import com.example.hiline.Retro
 import com.example.hiline.api.ForumApi
 import com.example.hiline.model.CommentResponse
-import com.example.hiline.user.ForumRayaActivity
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
@@ -72,7 +71,7 @@ class PengaduanKomentarActivity : AppCompatActivity() {
 
     fun getComment(){
         val id = idComment
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val reportApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = reportApi.getComment(id,token)
@@ -129,7 +128,7 @@ class PengaduanKomentarActivity : AppCompatActivity() {
 
     fun deleteComment(){
         val id = idComment
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = forumApi.deleteComment(id,token)

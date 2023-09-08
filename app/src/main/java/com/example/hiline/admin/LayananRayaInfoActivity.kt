@@ -15,7 +15,6 @@ import com.example.hiline.R
 import com.example.hiline.Retro
 import com.example.hiline.api.HospitalApi
 import com.example.hiline.model.HospitalResponse
-import com.example.hiline.user.ForumRayaKomentarActivity
 import com.squareup.picasso.Picasso
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
@@ -111,7 +110,7 @@ class LayananRayaInfoActivity : AppCompatActivity() {
         val hospitalApi: HospitalApi = Retro().getRetroClientInstance().create(HospitalApi::class.java)
 
         val hospitalId = intent.getStringExtra("id")
-        val tokenAuth = "Bearer ${prefManager.getToken()}"
+        val tokenAuth = "Bearer ${prefManager.getAccessToken()}"
 
         if (hospitalId != null) {
             hospitalApi.deleteHospital(hospitalId, tokenAuth).enqueue(object :

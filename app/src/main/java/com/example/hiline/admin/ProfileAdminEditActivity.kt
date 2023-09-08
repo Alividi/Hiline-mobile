@@ -22,9 +22,7 @@ import com.example.hiline.R
 import com.example.hiline.Retro
 import com.example.hiline.api.UserApi
 import com.example.hiline.model.EditProfileAdminRequest
-import com.example.hiline.model.EditProfileRequest
 import com.example.hiline.model.ProfileResponse
-import com.example.hiline.user.ProfileUserInfoActivity
 import com.squareup.picasso.Picasso
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -104,7 +102,7 @@ class ProfileAdminEditActivity : AppCompatActivity() {
         request.email = etEmail.text.toString().trim()
 
         val retro = Retro().getRetroClientInstance().create(UserApi::class.java)
-        val tokenAuth = "Bearer ${prefManager.getToken()}"
+        val tokenAuth = "Bearer ${prefManager.getAccessToken()}"
 
         if (etNama.text.toString() == ""){
             etNama.error = "Nama wajib diisi"
@@ -146,7 +144,7 @@ class ProfileAdminEditActivity : AppCompatActivity() {
 
     fun uploadImage(){
         val retro = Retro().getRetroClientInstance().create(UserApi::class.java)
-        val tokenAuth = "Bearer ${prefManager.getToken()}"
+        val tokenAuth = "Bearer ${prefManager.getAccessToken()}"
 
         val drawable = ivPP.drawable
         val bitmap = (drawable as BitmapDrawable).bitmap

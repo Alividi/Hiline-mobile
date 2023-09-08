@@ -13,21 +13,16 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hiline.PrefManager
 import com.example.hiline.R
 import com.example.hiline.Retro
 import com.example.hiline.admin.ForumRayaEditActivity
-import com.example.hiline.admin.ForumRayaInfoActivity
 import com.example.hiline.api.ForumApi
 import com.example.hiline.interfaces.ForumRayaInterface
 import com.example.hiline.model.ForumModel
 import com.example.hiline.model.ForumResponse
-import com.example.hiline.model.HospitalModel
-import com.example.hiline.user.ForumRayaKomentarActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -129,7 +124,7 @@ class ForumRayaAdminAdapter(
 
     fun deleteForum(position: Int){
         val id = forumModels[position].id.toString()
-        val token = "Bearer ${prefManager.getToken()}"
+        val token = "Bearer ${prefManager.getAccessToken()}"
         val forumApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
 
         val call = forumApi.deleteForum(id,token)

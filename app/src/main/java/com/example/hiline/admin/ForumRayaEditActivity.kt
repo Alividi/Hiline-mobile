@@ -69,7 +69,7 @@ class ForumRayaEditActivity : AppCompatActivity() {
         request.description = etIsi.text.toString().trim()
 
         val retro = Retro().getRetroClientInstance().create(ForumApi::class.java)
-        val tokenAuth = "Bearer ${prefManager.getToken()}"
+        val tokenAuth = "Bearer ${prefManager.getAccessToken()}"
         Log.e("Token: ",tokenAuth)
 
         val id = intent.getStringExtra("id").toString()

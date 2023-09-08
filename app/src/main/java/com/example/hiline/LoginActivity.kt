@@ -9,12 +9,10 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import com.example.hiline.admin.MainAdminActivity
 import com.example.hiline.api.UserApi
 import com.example.hiline.model.LoginRequest
-import com.example.hiline.model.RegisterRequest
 import com.example.hiline.model.UserResponse
 import com.example.hiline.user.MainUserActivity
 import com.google.android.material.textfield.TextInputEditText
@@ -53,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
         request.username = etUsername.text.toString().trim()
         request.password = etPassword.text.toString().trim()
 
-        val retro = Retro().getRetroClientInstance().create(UserApi::class.java)
+        val retro = Retro().getRetroAuthUrl().create(UserApi::class.java)
 
         if (etUsername.text.toString() == ""){
             etUsername.error = "Username wajib diisi"
@@ -62,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
             etPassword.error = "Password wajib diisi"
             etPassword.requestFocus()
         } else {
-            retro.signin(request).enqueue(object : Callback<UserResponse> {
+            retro.login(request).enqueue(object : Callback<UserResponse> {
                 override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                     if (response.isSuccessful) {
                         val rawResponse = response.raw().toString()
@@ -70,8 +68,9 @@ class LoginActivity : AppCompatActivity() {
                         val user = response.body()
                         if (user != null) {
                             prefManager.setId(user.data?.user?.id.toString())
-                            prefManager.setToken(user.data?.token.toString())
-                            prefManager.setNama(user.data?.user?.nama.toString())
+                            prefManager.setAccessToken(user.data?.access_token.toString())
+                            prefManager.setRefreshToken(user.data?.refresh_token.toString())
+                            prefManager.setNama(user.data?.user?.name.toString())
                             prefManager.setUsername(user.data?.user?.username.toString())
                             prefManager.setEmail(user.data?.user?.email.toString())
                             prefManager.setRole(user.data?.user?.role.toString())

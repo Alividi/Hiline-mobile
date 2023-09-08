@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.example.hiline.admin.LayananRayaTambahActivity
 import com.example.hiline.admin.MainAdminActivity
 import com.example.hiline.user.MainUserActivity
 
@@ -19,7 +18,7 @@ class SplashscreenActivity : AppCompatActivity() {
 
         prefManager = PrefManager(this)
         var role: String? = prefManager.getRole()
-        var token: String? = prefManager.getToken()
+        var token: String? = prefManager.getAccessToken()
 
         Handler(Looper.getMainLooper()).postDelayed({
             if (token == "" || token == null){

@@ -3,7 +3,7 @@ package com.example.hiline.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class UserResponse {
+class RefreshTokenResponse {
     @SerializedName("status")
     @Expose
     var status: String? = null
