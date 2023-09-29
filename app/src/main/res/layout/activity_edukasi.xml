@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".user.EdukasiActivity"
+    tools:context=".user.edukasi.EdukasiActivity"
     android:layout_margin="30dp">
 
     <ImageView
@@ -16,27 +16,100 @@
         android:layout_marginTop="5dp"
         android:src="@drawable/ic_arrow_left" />
 
-    <ImageView
-        android:id="@+id/ivUnder"
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@drawable/underconstructition"/>
-
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/tvFilter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edukasi is under construction"
+        android:text="Filter"
         android:fontFamily="@font/nunito_bold"
-        android:textSize="20sp"
-        android:textColor="@color/tufts_blue"
+        android:textSize="14sp"
+        android:textColor="@color/gravel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        android:layout_marginTop="13.5dp"/>
+
+    <HorizontalScrollView
+        android:id="@+id/hsvFilter"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        app:layout_constraintStart_toEndOf="@id/tvFilter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvFilter"
+        app:layout_constraintBottom_toBottomOf="@id/tvFilter"
+        android:layout_marginStart="8dp"
+        android:scrollbars="none">
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvFilterAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All"
+                android:fontFamily="@font/nunito_medium"
+                android:textColor="@color/tufts_blue"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/filter_selected_bg"/>
+
+            <TextView
+                android:id="@+id/tvFilterMoF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Myth or Fact"
+                android:fontFamily="@font/nunito_medium"
+                android:textColor="@color/silver2"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/tvFilterAll"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/filter_bg"/>
+
+            <TextView
+                android:id="@+id/tvFilterDtK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deep to Know"
+                android:fontFamily="@font/nunito_medium"
+                android:textColor="@color/silver2"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/tvFilterMoF"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/filter_bg"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </HorizontalScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivUnder"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintTop_toBottomOf="@id/hsvFilter"
+        android:layout_marginTop="20dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvEdukasi"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hsvFilter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
+        tools:listitem="@layout/recycleritem_edukasi_user"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

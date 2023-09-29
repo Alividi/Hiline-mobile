@@ -3,6 +3,7 @@ package com.example.hiline.admin
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,13 +15,20 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.hiline.MainActivity
-import com.example.hiline.PrefManager
+import com.example.hiline.service.PrefManager
 import com.example.hiline.R
-import com.example.hiline.user.GantiPasswordActivity
-import com.example.hiline.user.MainUserActivity
-import com.example.hiline.user.ProfileUserInfoActivity
-import com.example.hiline.user.RiwayatPengaduanActivity
+import com.example.hiline.admin.profile.ProfileAdminInfoActivity
+import com.example.hiline.GantiPasswordActivity
+import com.example.hiline.response.CurrentResponse
+import com.example.hiline.service.AuthService
+import com.example.hiline.service.Retro
+import com.example.hiline.service.TokenAuthenticator
+import com.google.gson.GsonBuilder
 import com.squareup.picasso.Picasso
+import okhttp3.OkHttpClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,6 +46,12 @@ class ProfileFragment : Fragment() {
 
     private lateinit var prefManager: PrefManager
     private lateinit var clLogout: ConstraintLayout
+    private lateinit var tvNama: TextView
+    private lateinit var ivPP: ImageView
+    private lateinit var tvUsername: TextView
+    private var name: String = ""
+    private var username: String =""
+    private var pImg: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,19 +93,14 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         prefManager = PrefManager(requireContext())
 
-        val tvNama: TextView = view.findViewById(R.id.tvNama)
-        val tvUsername: TextView = view.findViewById(R.id.tvUsername)
+        tvNama = view.findViewById(R.id.tvNama)
+        tvUsername = view.findViewById(R.id.tvUsername)
         val btnProfile: ImageView = view.findViewById(R.id.btnProfile)
         val btnGPw: ImageView = view.findViewById(R.id.btnGPw)
-        val ivPP: ImageView = view.findViewById(R.id.ivPP)
+        ivPP = view.findViewById(R.id.ivPP)
         clLogout = view.findViewById(R.id.clLogout)
 
-        val imgUri = prefManager.getPImg()
-        Picasso.get().invalidate(imgUri)
-        Picasso.get().load(imgUri).into(ivPP)
-
-        tvNama.text = prefManager.getNama()
-        tvUsername.text = "@"+prefManager.getUsername()
+        currentUser()
 
         btnProfile.setOnClickListener {
             val intent = Intent(context, ProfileAdminInfoActivity::class.java)
@@ -111,6 +120,86 @@ class ProfileFragment : Fragment() {
 
     }
 
+    fun currentUser(){
+        val tokenAuthenticator = TokenAuthenticator(prefManager)
+        val okHttpClient = OkHttpClient.Builder()
+            .authenticator(tokenAuthenticator)
+            .build()
+        val retrofit = Retro().getAuthUrl(okHttpClient)
+        val service = retrofit.create(AuthService::class.java)
+        val aToken = prefManager.getAccessToken()
+
+        val call = service.currentUser(aToken)
+
+        call.enqueue(object : Callback<CurrentResponse> {
+            override fun onResponse(call: Call<CurrentResponse>, response: Response<CurrentResponse>) {
+                if (response.isSuccessful) {
+                    //val gson = GsonBuilder().setPrettyPrinting().create()
+                    //val responseBody = gson.toJson(response.body())
+                    //Log.e("Body: ", responseBody)
+                    val rawResponse = response.raw().toString()
+                    Log.e("Raw Response: ", rawResponse)
+
+                    name = response.body()?.data?.user?.name.toString()
+                    username = response.body()?.data?.user?.username.toString()
+                    pImg = response.body()?.data?.user?.image.toString()
+
+                    tvNama.text = name
+                    tvUsername.text = "@${username}"
+                    val imgUri = pImg
+                    if (imgUri.isNullOrEmpty()){
+
+                    }else{
+                        Picasso.get().invalidate(imgUri)
+                        Picasso.get().load(imgUri).into(ivPP)
+                    }
+
+                } else {
+                    val rawResponse = response.raw().toString()
+                    Log.e("Raw Response: ", rawResponse)
+                    Log.e("Error: ", "unsuccessful response")
+                    Log.e("Status: ", response.body()?.status.toString())
+                }
+            }
+            override fun onFailure(call: Call<CurrentResponse>, t: Throwable) {
+                Log.e("Network API Error: ", t.message.toString())
+                Log.e("Error: ","network or API call failure")
+            }
+        })
+    }
+
+    fun logout(){
+        val tokenAuthenticator = TokenAuthenticator(prefManager)
+        val okHttpClient = OkHttpClient.Builder()
+            .authenticator(tokenAuthenticator)
+            .build()
+        val retrofit = Retro().getAuthUrl(okHttpClient)
+        val service = retrofit.create(AuthService::class.java)
+        val aToken = prefManager.getAccessToken()
+
+        val call = service.logout(aToken)
+
+        call.enqueue(object : Callback<CurrentResponse> {
+            override fun onResponse(call: Call<CurrentResponse>, response: Response<CurrentResponse>) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val responseBody = gson.toJson(response.body())
+                    Log.e("Body: ", responseBody)
+                    val rawResponse = response.raw().toString()
+                    Log.e("Raw Response: ", rawResponse)
+                } else {
+                    val rawResponse = response.raw().toString()
+                    Log.e("Raw Response: ", rawResponse)
+                    Log.e("Error: ", "unsuccessful response")
+                }
+            }
+            override fun onFailure(call: Call<CurrentResponse>, t: Throwable) {
+                Log.e("Network API Error: ", t.message.toString())
+                Log.e("Error: ","network or API call failure")
+            }
+        })
+    }
+
     fun showLogoutDialog() {
         val dialogLogout = Dialog(requireContext(), R.style.MaterialDialogSheet)
         dialogLogout.setContentView(R.layout.dialog_logout)
@@ -126,6 +215,7 @@ class ProfileFragment : Fragment() {
         val btnKembaliDialog = dialogLogout.findViewById<TextView>(R.id.btnKembaliDialog)
 
         btnLogoutDialog.setOnClickListener {
+            logout()
             prefManager.removeData()
             val intent = Intent(context, MainActivity::class.java)
             startActivity(intent)

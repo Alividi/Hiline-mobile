@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user.edukasi.EdukasiDtK">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="30dp"
+        android:src="@drawable/ic_arrow_left" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="33dp"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp">
+
+            <ImageView
+                android:id="@+id/ivDtK"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:src="@drawable/edukasi_def_dtk"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"/>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Obat yang Perlu Diketahui ODHA"
+                android:fontFamily="@font/nunito_semibold"
+                android:textSize="18sp"
+                android:textColor="@color/gravel"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivDtK"
+                android:layout_marginTop="29dp"
+                android:layout_marginStart="81dp"
+                android:layout_marginEnd="81dp"/>
+
+            <TextView
+                android:id="@+id/tvIsi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet consectetur. Sit lectus quis morbi lorem. Semper quis enim odio duis commodo risus faucibus tellus ullamcorper. Sapien pretium mattis velit tellus arcu mauris quis sed orci. Sit felis vivamus vitae amet luctus orci. Tellus vestibulum sed at congue lorem gravida ac libero quisque. Urna pharetra ipsum sed sed auctor ut in amet. Eu cras pellentesque vel lectus hendrerit consequat. Volutpat quisque at risus phasellus dictum orci. Semper suspendisse augue nec mi amet aliquam pellentesque."
+                android:fontFamily="@font/nunito_regular"
+                android:textColor="@color/gravel"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                android:layout_marginTop="29dp"
+                android:justificationMode="inter_word"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"/>
+
+            <TextView
+                android:id="@+id/tvSumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sumber"
+                android:fontFamily="@font/nunito_semibold"
+                android:textSize="16sp"
+                android:textColor="@color/gravel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvIsi"
+                android:layout_marginTop="29dp"
+                android:layout_marginStart="30dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvLinks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSumber"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:listitem="@layout/recycleritem_edukasi_link"
+                android:clipToPadding="false"
+                android:paddingStart="30dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="30dp"
+                android:layout_marginBottom="30dp"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

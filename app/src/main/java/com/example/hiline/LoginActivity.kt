@@ -11,11 +11,14 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import com.example.hiline.admin.MainAdminActivity
-import com.example.hiline.api.UserApi
-import com.example.hiline.model.LoginRequest
-import com.example.hiline.model.UserResponse
+import com.example.hiline.service.UserService
+import com.example.hiline.request.LoginRequest
+import com.example.hiline.response.UserResponse
+import com.example.hiline.service.PrefManager
+import com.example.hiline.service.Retro
 import com.example.hiline.user.MainUserActivity
 import com.google.android.material.textfield.TextInputEditText
+import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        val tvLupaPw: TextView = findViewById(R.id.tvLupaPw)
         val btnMasuk:AppCompatButton = findViewById(R.id.btnMasuk)
         val btnDaftar:TextView = findViewById(R.id.tvBuatAkun)
         etUsername = findViewById(R.id.etUsername)
@@ -39,6 +43,11 @@ class LoginActivity : AppCompatActivity() {
 
         btnMasuk.setOnClickListener {
             signIn()
+        }
+        tvLupaPw.setOnClickListener {
+            val intent = Intent(this, LupaPasswordActivity::class.java)
+            startActivity(intent)
+            finish()
         }
         btnDaftar.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
@@ -51,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
         request.username = etUsername.text.toString().trim()
         request.password = etPassword.text.toString().trim()
 
-        val retro = Retro().getRetroAuthUrl().create(UserApi::class.java)
+        val retro = Retro().getRetroAuthUrl().create(UserService::class.java)
 
         if (etUsername.text.toString() == ""){
             etUsername.error = "Username wajib diisi"
@@ -63,6 +72,9 @@ class LoginActivity : AppCompatActivity() {
             retro.login(request).enqueue(object : Callback<UserResponse> {
                 override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                     if (response.isSuccessful) {
+                        //val gson = GsonBuilder().setPrettyPrinting().create()
+                        //val responseBody = gson.toJson(response.body())
+                        //Log.e("Body: ", responseBody)
                         val rawResponse = response.raw().toString()
                         Log.e("Raw Response: ", rawResponse)
                         val user = response.body()
@@ -75,7 +87,7 @@ class LoginActivity : AppCompatActivity() {
                             prefManager.setEmail(user.data?.user?.email.toString())
                             prefManager.setRole(user.data?.user?.role.toString())
                             prefManager.setTanggal(user.data?.user?.tanggal_lahir.toString())
-                            prefManager.setPImg(user.data?.user?.profile_image.toString())
+                            prefManager.setPImg(user.data?.user?.image.toString())
 
                             if (user.data?.user?.role.toString() == "admin"){
                                 val intent = Intent(this@LoginActivity, MainAdminActivity::class.java)

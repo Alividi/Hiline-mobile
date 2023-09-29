@@ -10,6 +10,7 @@
         android:maxSdkVersion="32" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -21,94 +22,112 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".admin.MapSelectionActivity"
+            android:name=".LupaPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.EdukasiAdminActivity"
+            android:name=".user.edukasi.EdukasiDtK"
             android:exported="false" />
         <activity
-            android:name=".user.KonsultasiActivity"
+            android:name=".user.edukasi.EdukasiLinks"
             android:exported="false" />
         <activity
-            android:name=".user.EdukasiActivity"
+            android:name=".user.edukasi.EdukasiPoint"
             android:exported="false" />
         <activity
-            android:name=".admin.ForumRayaEditActivity"
+            android:name=".user.edukasi.EdukasiSalah"
             android:exported="false" />
         <activity
-            android:name=".admin.ForumRayaTambahActivity"
+            android:name=".user.edukasi.EdukasiMoF"
             android:exported="false" />
         <activity
-            android:name=".admin.ForumRayaInfoActivity"
+            android:name=".admin.layanan.MapSelectionActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.LayananRayaEditActivity"
+            android:name=".admin.edukasi.EdukasiAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.LayananRayaTambahActivity"
+            android:name=".user.konsultasi.KonsultasiActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.LayananRayaInfoActivity"
+            android:name=".user.edukasi.EdukasiActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.PengaduanKomentarActivity"
+            android:name=".admin.forum.ForumRayaEditActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.PengaduanInfoActivity"
+            android:name=".admin.forum.ForumRayaTambahActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.PengaduanActivity"
+            android:name=".admin.forum.ForumRayaInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.ForumRayaAdminActivity"
+            android:name=".admin.layanan.LayananRayaEditActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.LayananRayaAdminActivity"
+            android:name=".admin.layanan.LayananRayaTambahActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.ProfileAdminEditActivity"
+            android:name=".admin.layanan.LayananRayaInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.ProfileAdminInfoActivity"
+            android:name=".admin.forum.PengaduanKomentarActivity"
             android:exported="false" />
         <activity
-            android:name=".user.LaporkanKomentarLainnyaActivity"
+            android:name=".admin.forum.PengaduanInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".user.LaporkanKomentarActivity"
+            android:name=".admin.forum.PengaduanActivity"
             android:exported="false" />
         <activity
-            android:name=".user.ForumRayaKomentarActivity"
+            android:name=".admin.forum.ForumRayaAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".user.ForumRayaActivity"
+            android:name=".admin.layanan.LayananRayaAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".user.RiwayatPengaduanInfoActivity"
+            android:name=".admin.profile.ProfileAdminEditActivity"
             android:exported="false" />
         <activity
-            android:name=".user.RiwayatPengaduanActivity"
+            android:name=".admin.profile.ProfileAdminInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".user.GantiPwActivity"
+            android:name=".user.forum.LaporkanKomentarLainnyaActivity"
             android:exported="false" />
         <activity
-            android:name=".user.GantiPasswordActivity"
+            android:name=".user.forum.LaporkanKomentarActivity"
             android:exported="false" />
         <activity
-            android:name=".user.LayananRayaDetailActivity"
+            android:name=".user.forum.ForumRayaKomentarActivity"
             android:exported="false" />
         <activity
-            android:name=".user.LayananRayaActivity"
+            android:name=".user.forum.ForumRayaActivity"
             android:exported="false" />
         <activity
-            android:name=".user.ProfileUserEditActivity"
+            android:name=".user.forum.RiwayatPengaduanInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".user.ProfileUserInfoActivity"
+            android:name=".user.forum.RiwayatPengaduanActivity"
             android:exported="false" />
         <activity
-            android:name=".user.ProfileUserActivity"
+            android:name=".GantiPwActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GantiPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".user.layanan.LayananRayaDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".user.layanan.LayananRayaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".user.profile.ProfileUserEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".user.profile.ProfileUserInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".user.profile.ProfileUserActivity"
             android:exported="false" />
         <activity
             android:name=".admin.MainAdminActivity"

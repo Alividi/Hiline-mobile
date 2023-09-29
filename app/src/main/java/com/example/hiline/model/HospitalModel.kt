@@ -11,6 +11,7 @@ class HospitalModel {
     var latitude: Double? = null
     var longitude: Double? = null
     var jarak: Double? = null
+    var serial: String? = null
 
     constructor()
     constructor(
@@ -23,7 +24,8 @@ class HospitalModel {
         image: String?,
         latitude: Double?,
         longitude: Double?,
-        jarak: Double?
+        jarak: Double?,
+        serial: String?
     ) {
         this.id = id
         this.nama = nama
@@ -35,6 +37,7 @@ class HospitalModel {
         this.latitude = latitude
         this.longitude = longitude
         this.jarak = jarak
+        this.serial = serial
     }
 
 

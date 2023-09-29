@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.example.hiline.admin.MainAdminActivity
+import com.example.hiline.service.PrefManager
 import com.example.hiline.user.MainUserActivity
 
 class SplashscreenActivity : AppCompatActivity() {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".user.ProfileUserInfoActivity"
+    tools:context=".user.profile.ProfileUserInfoActivity"
     android:layout_margin="30dp">
 
     <ImageView
@@ -30,7 +30,7 @@
             android:id="@+id/ivPP"
             android:layout_width="77dp"
             android:layout_height="77dp"
-            android:src="@drawable/profileuser_pp"
+            android:src="@drawable/profile_profile"
             android:scaleType="centerCrop"/>
 
     </androidx.cardview.widget.CardView>
@@ -51,7 +51,7 @@
         android:id="@+id/tvNama"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="John Doe"
+        android:text=""
         android:fontFamily="@font/nunito_regular"
         android:textColor="@color/bright_grey"
         android:textSize="16sp"
@@ -75,7 +75,7 @@
         android:id="@+id/tvUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="johndoeeee"
+        android:text=""
         android:fontFamily="@font/nunito_regular"
         android:textColor="@color/bright_grey"
         android:textSize="16sp"
@@ -99,7 +99,7 @@
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="johndoeeee@gmail.com"
+        android:text=""
         android:fontFamily="@font/nunito_regular"
         android:textColor="@color/bright_grey"
         android:textSize="16sp"
@@ -123,7 +123,7 @@
         android:id="@+id/tvTanggal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="00 January 0000"
+        android:text=""
         android:fontFamily="@font/nunito_regular"
         android:textColor="@color/bright_grey"
         android:textSize="16sp"

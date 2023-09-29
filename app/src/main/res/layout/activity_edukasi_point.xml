@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user.edukasi.EdukasiPoint"
+    android:layout_margin="30dp">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_arrow_left" />
+
+    <ImageView
+        android:id="@+id/ivPoint"
+        android:layout_width="245dp"
+        android:layout_height="245dp"
+        android:src="@drawable/edukasi_point"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="200dp"/>
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Selamat, kamu mendapatkan "
+        android:fontFamily="@font/nunito_bold"
+        android:textSize="16sp"
+        android:textColor="@color/gravel"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivPoint"
+        android:layout_marginTop="-25dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginEnd="51dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnOther"
+        android:layout_width="0dp"
+        android:layout_height="37dp"
+        android:text="Cari Fakta Lain"
+        android:fontFamily="@font/nunito_extrabold"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textAllCaps="false"
+        android:background="@drawable/btn_other_point_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMessage"
+        android:layout_marginTop="29dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="56dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnBeranda"
+        android:layout_width="0dp"
+        android:layout_height="37dp"
+        android:text="Kembali Ke Beranda"
+        android:fontFamily="@font/nunito_extrabold"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textAllCaps="false"
+        android:background="@drawable/btn_beranda_point_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnOther"
+        android:layout_marginTop="17dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="56dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

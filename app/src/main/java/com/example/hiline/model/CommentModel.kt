@@ -9,6 +9,7 @@ class CommentModel {
     var role: String? = null
     var tanggal_lahir: String? = null
     var profile_image: String? = null
+    var grade: String? = null
     var message: String? = null
     var like_count: Int? = null
     var liked: Boolean? = null
@@ -24,6 +25,7 @@ class CommentModel {
         role: String?,
         tanggal_lahir: String?,
         profile_image: String?,
+        grade: String?,
         message: String?,
         like_count: Int?,
         liked: Boolean?,
@@ -37,6 +39,7 @@ class CommentModel {
         this.role = role
         this.tanggal_lahir = tanggal_lahir
         this.profile_image = profile_image
+        this.grade = grade
         this.message = message
         this.like_count = like_count
         this.liked = liked

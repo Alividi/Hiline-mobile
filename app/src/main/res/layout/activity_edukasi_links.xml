@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user.edukasi.EdukasiLinks">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/ic_arrow_left"
+        android:layout_marginStart="30dp"/>
+
+    <ImageView
+        android:id="@+id/ivBrain"
+        android:layout_width="91dp"
+        android:layout_height="91dp"
+        android:src="@drawable/edukasi_link_brain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"/>
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Cari tahu lebih lanjut melalui sumber-sumber ini!"
+        android:fontFamily="@font/nunito_bold"
+        android:textColor="@color/gravel"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/ivBrain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="81dp"
+        android:layout_marginStart="81dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLinks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMessage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/recycleritem_edukasi_link"
+        android:clipToPadding="false"
+        android:paddingTop="22dp"
+        android:paddingEnd="30dp"
+        android:paddingStart="30dp"
+        android:layout_marginBottom="30dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

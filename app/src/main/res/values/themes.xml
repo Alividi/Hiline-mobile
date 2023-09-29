@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Hiline" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.Hiline" parent="Theme.Material3.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/tufts_blue</item>
         <item name="colorPrimaryVariant">@color/tufts_blue</item>

@@ -29,4 +29,16 @@
         <item name="cornerSize">50%</item>
     </style>
 
+    <style name="mySpinnerItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:spinnerItemStyle">@style/mySpinnerItemStyle</item>
+    </style>
+    <style name="mySpinnerItemStyleGreyed" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:textColor">@color/cool_grey</item>
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:spinnerItemStyle">@style/mySpinnerItemStyleGreyed</item>
+    </style>
 </resources>

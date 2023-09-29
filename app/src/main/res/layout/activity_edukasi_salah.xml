@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user.edukasi.EdukasiSalah"
+    android:layout_margin="30dp">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_arrow_left" />
+    
+    <ImageView
+        android:id="@+id/ivWrong"
+        android:layout_width="231dp"
+        android:layout_height="231dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/edukasi_wrong"
+        android:layout_marginTop="210dp"/>
+
+    <TextView
+        android:id="@+id/tvWrong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sayang sekali, jawaban kamu belum tepat"
+        android:fontFamily="@font/nunito_semibold"
+        android:textSize="12sp"
+        android:textColor="#7e7d7d"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivWrong"
+        android:layout_marginTop="29dp"/>
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="HIV tidak menular melalui sentuhan atau bersin, ya!"
+        android:fontFamily="@font/nunito_bold"
+        android:textColor="@color/gravel"
+        android:textSize="18sp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWrong"
+        android:layout_marginTop="13dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginEnd="51dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPelajari"
+        android:layout_width="0dp"
+        android:layout_height="37dp"
+        android:text="Pelajari lebih lanjut disini!"
+        android:fontFamily="@font/nunito_extrabold"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textAllCaps="false"
+        android:background="@drawable/btn_pelajari_wrong_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMessage"
+        android:layout_marginTop="13dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="56dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

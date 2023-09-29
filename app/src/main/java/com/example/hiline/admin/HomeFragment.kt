@@ -11,13 +11,19 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hiline.PrefManager
+import com.example.hiline.service.PrefManager
 import com.example.hiline.R
-import com.example.hiline.Retro
-import com.example.hiline.adapter.ReportHomeAdminAdapter
-import com.example.hiline.api.ForumApi
+import com.example.hiline.service.Retro
+import com.example.hiline.adapter.forum.ReportHomeAdminAdapter
+import com.example.hiline.admin.edukasi.EdukasiAdminActivity
+import com.example.hiline.admin.forum.ForumRayaAdminActivity
+import com.example.hiline.admin.forum.PengaduanActivity
+import com.example.hiline.admin.layanan.LayananRayaAdminActivity
+import com.example.hiline.service.ForumService
 import com.example.hiline.model.ReportModel
-import com.example.hiline.model.ReportsResponse
+import com.example.hiline.response.ReportsResponse
+import com.example.hiline.service.TokenAuthenticator
+import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -82,7 +88,11 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        prefManager = PrefManager(requireContext())
+        if (context != null) {
+            prefManager = PrefManager(requireContext())
+        } else {
+            Log.e("Eror: ", "Home Fragment no context")
+        }
 
         val cvMenu1: CardView = view.findViewById(R.id.cvMenu1)
         val cvMenu2: CardView = view.findViewById(R.id.cvMenu2)
@@ -90,7 +100,7 @@ class HomeFragment : Fragment() {
         val tvHallo: TextView = view.findViewById(R.id.tvHallo)
         val tvTanggal: TextView = view.findViewById(R.id.tvTanggal)
         val currentDate = LocalDate.now()
-        val formatter = DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.ENGLISH)
+        val formatter = DateTimeFormatter.ofPattern("d MMMM yyyy", Locale("id", "ID"))
         val formattedDate = currentDate.format(formatter)
         val tvSeluruhPengaduan: TextView = view.findViewById(R.id.tvSeluruhPengaduan)
 
@@ -126,57 +136,67 @@ class HomeFragment : Fragment() {
         }
     }
     fun getReports(){
-        val token = "Bearer ${prefManager.getAccessToken()}"
-        val reportApi = Retro().getRetroClientInstance().create(ForumApi::class.java)
-
-        val call = reportApi.getReports(token)
+        if (context != null) {
+            prefManager = PrefManager(requireContext())
+        } else {
+            Log.e("Eror: ", "Home Fragment no context")
+        }
+        val tokenAuthenticator = TokenAuthenticator(prefManager)
+        val okHttpClient = OkHttpClient.Builder()
+            .authenticator(tokenAuthenticator)
+            .build()
+        val retrofit = Retro().getRetroForumUrl(okHttpClient)
+        val service = retrofit.create(ForumService::class.java)
+        val aToken = prefManager.getAccessToken()
+        val call = service.getReportsAdmin(aToken)
         call.enqueue(object : Callback<ReportsResponse> {
-            override fun onResponse(
-                call: Call<ReportsResponse>,
-                response: Response<ReportsResponse>
-            ) {
+            override fun onResponse(call: Call<ReportsResponse>, response: Response<ReportsResponse>) {
                 if (response.isSuccessful) {
                     val reportsResponse = response.body()
                     val reports = reportsResponse?.data
                     val rawResponse = response.raw().toString()
                     Log.e("Raw Response: ", rawResponse)
 
-                    reports?.forEach {report: ReportsResponse.datas ->
+                    reports?.forEach {report ->
                         reportModels.add(
                             ReportModel(
                                 report.id,
-                                report.comment_id,
+                                report.comment?.id,
                                 report.pelapor?.id,
-                                report.pelapor?.nama,
+                                report.pelapor?.name,
                                 report.pelapor?.username,
                                 report.pelapor?.email,
                                 report.pelapor?.role,
-                                report.pelapor?.tanggal_lahir,
-                                report.pelapor?.profile_image,
+                                report.pelapor?.tanggalLahir,
+                                report.pelapor?.image,
                                 report.terlapor?.id,
-                                report.terlapor?.nama,
+                                report.terlapor?.name,
                                 report.terlapor?.username,
                                 report.terlapor?.email,
                                 report.terlapor?.role,
-                                report.terlapor?.tanggal_lahir,
-                                report.terlapor?.profile_image,
+                                report.terlapor?.tanggalLahir,
+                                report.terlapor?.image,
                                 report.message,
-                                report.terproses,
-                                report.jam,
-                                report.tanggal
+                                report.view_history,
+                                report.hour,
+                                report.date
                             )
                         )
                         rvPengaduan.adapter = adapter
                         rvPengaduan.layoutManager = LinearLayoutManager(requireContext())
                         adapter.notifyDataSetChanged()
                     }
-                }else{
+
+                } else {
                     val rawResponse = response.raw().toString()
                     Log.e("Raw Response: ", rawResponse)
+                    Log.e("Error: ", "unsuccessful response")
+                    Log.e("Status: ", response.body()?.status.toString())
                 }
             }
             override fun onFailure(call: Call<ReportsResponse>, t: Throwable) {
-                Log.e("onFailure: ", t.toString())
+                Log.e("Network API Error: ", t.message.toString())
+                Log.e("Error: ","network or API call failure")
             }
         })
     }

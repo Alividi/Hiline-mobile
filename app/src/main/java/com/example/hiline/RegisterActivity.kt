@@ -6,16 +6,15 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
-import android.view.WindowManager
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import com.example.hiline.api.UserApi
-import com.example.hiline.model.RegisterRequest
-import com.example.hiline.model.UserResponse
+import com.example.hiline.service.UserService
+import com.example.hiline.request.RegisterRequest
+import com.example.hiline.response.UserResponse
+import com.example.hiline.service.Retro
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
@@ -53,10 +52,10 @@ class RegisterActivity : AppCompatActivity() {
 
     fun signUp() {
         val request = RegisterRequest()
-        request.name = etNama.text.toString().trim()
         request.username = etUsername.text.toString().trim()
         request.email = etEmail.text.toString().trim()
         request.password = etPassword.text.toString().trim()
+        request.name = etNama.text.toString().trim()
         request.role = "user"
 
         if (etNama.text.toString() == "") {
@@ -74,9 +73,12 @@ class RegisterActivity : AppCompatActivity() {
         } else if (etKPassword.text.toString() == "") {
             etKPassword.error = "Wajib diisi"
             etKPassword.requestFocus()
+        }else if(etUsername.text.length < 5){
+            etUsername.error = "Minimal 5 karakter"
+            etUsername.requestFocus()
         } else {
             if (etPassword.text.toString() == etKPassword.text.toString()){
-                val retro = Retro().getRetroUserUrl().create(UserApi::class.java)
+                val retro = Retro().getRetroUserUrl().create(UserService::class.java)
                 retro.signup(request).enqueue(object : Callback<UserResponse> {
                     override fun onResponse(
                         call: Call<UserResponse>,
