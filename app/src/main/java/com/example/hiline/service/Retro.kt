@@ -9,7 +9,7 @@ class Retro {
     fun getRetroClientInstance(): Retrofit {
         val gson = GsonBuilder().setLenient().create()
         return Retrofit.Builder()
-            .baseUrl("https://hiline.pegelinux.tech/api/v1/")
+            .baseUrl("http://localhost")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
@@ -17,7 +17,7 @@ class Retro {
     fun getRetroAuthUrl(): Retrofit {
         val gson = GsonBuilder().setLenient().create()
         return Retrofit.Builder()
-            .baseUrl("https://auth.hiline.my.id")
+            .baseUrl("http://localhost")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
@@ -26,7 +26,7 @@ class Retro {
         val gson = GsonBuilder().setLenient().create()
 
         return Retrofit.Builder()
-            .baseUrl("https://auth.hiline.my.id")
+            .baseUrl("http://localhost")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient)
             .build()
@@ -36,7 +36,7 @@ class Retro {
         val gson = GsonBuilder().setLenient().create()
 
         return Retrofit.Builder()
-            .baseUrl("https://wilayah.hiline.my.id")
+            .baseUrl("http://localhost")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient)
             .build()
@@ -45,7 +45,7 @@ class Retro {
     fun getRetroUserUrl(): Retrofit {
         val gson = GsonBuilder().setLenient().create()
         return Retrofit.Builder()
-            .baseUrl("https://user.hiline.my.id")
+            .baseUrl("http://localhost")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
@@ -54,7 +54,7 @@ class Retro {
         val gson = GsonBuilder().setLenient().create()
 
         return Retrofit.Builder()
-            .baseUrl("https://user.hiline.my.id")
+            .baseUrl("http://localhost")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient)
             .build()
@@ -64,7 +64,7 @@ class Retro {
         val gson = GsonBuilder().setLenient().create()
 
         return Retrofit.Builder()
-            .baseUrl("https://hospital.hiline.my.id")
+            .baseUrl("http://localhost")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient)
             .build()
@@ -74,7 +74,7 @@ class Retro {
         val gson = GsonBuilder().setLenient().create()
 
         return Retrofit.Builder()
-            .baseUrl("https://edu.hiline.my.id")
+            .baseUrl("http://localhost")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient)
             .build()
@@ -84,7 +84,7 @@ class Retro {
         val gson = GsonBuilder().setLenient().create()
 
         return Retrofit.Builder()
-            .baseUrl("https://forum.hiline.my.id")
+            .baseUrl("http://localhost")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient)
             .build()
